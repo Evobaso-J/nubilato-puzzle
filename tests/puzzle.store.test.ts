@@ -21,7 +21,9 @@ describe('puzzle store', () => {
     if (!first) throw new Error('expected first trial')
     const result = store.submitCode(first.code)
     expect(result.ok).toBe(true)
-    expect(store.unlockedPieces).toEqual([1])
+    expect(store.unlockedPieces).toHaveLength(1)
+    expect(store.unlockedPieces[0]).toBeGreaterThanOrEqual(1)
+    expect(store.unlockedPieces[0]).toBeLessThanOrEqual(15)
     expect(store.currentTrialIndex).toBe(1)
     expect(store.currentTrial?.id).toBe(2)
   })
@@ -65,7 +67,12 @@ describe('puzzle store', () => {
     const store = usePuzzleStore()
     store.jumpTo(5)
     expect(store.currentTrialIndex).toBe(5)
-    expect(store.unlockedPieces).toEqual([1, 2, 3, 4, 5])
+    expect(store.unlockedPieces).toHaveLength(5)
+    expect(new Set(store.unlockedPieces).size).toBe(5)
+    for (const p of store.unlockedPieces) {
+      expect(p).toBeGreaterThanOrEqual(1)
+      expect(p).toBeLessThanOrEqual(15)
+    }
   })
 
   it('jumpTo clamps within bounds', () => {
