@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import confetti from 'canvas-confetti'
 
+const imageUrl = '/nubilato.jpeg'
+
 const puzzleStore = usePuzzleStore()
 const router = useRouter()
 
@@ -59,7 +61,7 @@ function fireConfetti() {
 
     <div class="my-6 w-full overflow-hidden rounded-2xl shadow-2xl shadow-pink-900/40 ring-2 ring-celebration-gold/50">
       <img
-        src="/nubilato.jpeg"
+        :src="imageUrl"
         alt="Bachelorette reward"
         class="h-auto w-full"
       >
@@ -67,7 +69,7 @@ function fireConfetti() {
 
     <footer class="w-full">
       <a
-        href="/nubilato.jpeg"
+        :href="imageUrl"
         download="addio-al-celibato.jpg"
         class="block w-full rounded-2xl bg-celebration-accent py-4 text-center text-lg font-bold text-white shadow-lg shadow-pink-900/40 transition-transform active:scale-[0.98]"
       >
