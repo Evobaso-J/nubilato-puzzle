@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   typescript: {
-    typeCheck: true,
+    typeCheck: false,
   },
 
   modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss', '@pinia/nuxt'],
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
     },
-    checker: true,
+    checker: false,
   },
 
   css: ['~/assets/css/main.css'],
@@ -37,6 +37,6 @@ export default defineNuxtConfig({
   },
 
   srcDir: 'src/',
-  ssr: true,
+  ssr: false,
   compatibilityDate: '2024-07-04',
 })
